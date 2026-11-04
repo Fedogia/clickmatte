@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-SCONTORNO AUTOMATICO -> MOGRT "Collage Strisce"   (versione 3.3, comando da terminale)
+CLICKMATTE -> MOGRT "Collage Strisce"   (versione 3.3, comando da terminale)
 =====================================================================================
 
-C'e' anche l'interfaccia grafica: python3 app.py  (o doppio clic su "Avvia Scontorno.command").
+C'e' anche l'interfaccia grafica: python3 app.py  (o doppio clic su "Avvia ClickMatte.command").
 Questo comando usa lo stesso motore (cartella motore/) e da' risultati identici.
 
 Prende un video, scontorna UN soggetto (una persona, anche con oggetti in mano, oppure qualsiasi
@@ -26,15 +26,15 @@ TRE MOTORI
   --motore isnet      (default senza --segui) frame per frame, licenze libere, ok per lavori commerciali.
 
 LAVORO A PEZZI
-  Il tracciamento e lo stato dei file esportati restano in ~/Library/Caches/Scontorno (uguale per
+  Il tracciamento e lo stato dei file esportati restano in ~/Library/Caches/ClickMatte (uguale per
   l'interfaccia grafica). Se aggiungi una correzione (--segui T:...) e rilanci, si ritraccia e si
   riesporta solo da quel punto in avanti; il resto dei file viene riusato senza ricomprimere.
   --da-capo per rifare comunque tutto. --progetto file.json esegue un progetto salvato dall'app.
 
 INSTALLAZIONE (Mac Apple Silicon, una volta sola)
     brew install ffmpeg python
-    python3 -m venv ~/scontorno-env
-    source ~/scontorno-env/bin/activate
+    python3 -m venv ~/clickmatte-env
+    source ~/clickmatte-env/bin/activate
     pip install "rembg[cpu]" opencv-python numpy ultralytics omegaconf hydra-core huggingface_hub safetensors imageio
     git clone https://github.com/pq-yang/MatAnyone2 ~/MatAnyone2
     pip install --no-deps -e ~/MatAnyone2      # "-e" serve: senza, il loro pacchetto da errore
@@ -42,9 +42,9 @@ INSTALLAZIONE (Mac Apple Silicon, una volta sola)
 
 USO
     # 1) prova: tracciamento completo + 3 PNG di controllo + <nome>_TRACCIA.mp4
-    python3 scontorno.py video.mov --segui 42,70+45,40 --segui 3.25:- --segui 8.2:25,75+40,30 --prova
+    python3 clickmatte.py video.mov --segui 42,70+45,40 --segui 3.25:- --segui 8.2:25,75+40,30 --prova
     # 2) render finale (riusa il tracciamento gia' calcolato)
-    python3 scontorno.py video.mov --segui 42,70+45,40 --segui 3.25:- --segui 8.2:25,75+40,30
+    python3 clickmatte.py video.mov --segui 42,70+45,40 --segui 3.25:- --segui 8.2:25,75+40,30
 
   --segui x,y          punto su di te (in % del frame) nel primo frame del tratto
   --segui T:x,y        dal secondo T (tempo del video originale) riparti da questo punto
@@ -59,7 +59,7 @@ MANI (automatico con il motore matanyone)
   Nei PNG di prova trovi anche <nome>_PROVA_frameXXXX_manoN.png: originale | prima | dopo | maschera.
   --no-mani per disattivarlo, --mani-risoluzione per cambiare il lato del ritaglio.
 
-Qualita' / velocita' (python3 scontorno.py -h per tutte le opzioni):
+Qualita' / velocita' (python3 clickmatte.py -h per tutte le opzioni):
   --risoluzione 1080   lato corto a cui lavora MatAnyone (1440 per primi piani, piu' lento)
   --segui-risoluzione  1024 (default) oppure 512: tracciamento ~8x piu' veloce
   --durezza 0..1       rende piu' solido il corpo senza assottigliare i capelli

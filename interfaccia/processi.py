@@ -48,7 +48,7 @@ class Lavoro(QObject):
     def avvia(self, azione, **dati):
         if self.attivo():
             return False
-        fd, self._json = tempfile.mkstemp(prefix="scontorno_lavoro_", suffix=".json")
+        fd, self._json = tempfile.mkstemp(prefix="clickmatte_lavoro_", suffix=".json")
         with os.fdopen(fd, "w", encoding="utf-8") as fh:
             json.dump({"azione": azione, **dati}, fh)
         self._buf, self._esito, self._annullando = b"", False, False

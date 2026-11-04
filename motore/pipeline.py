@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Il flusso completo: analisi del video -> tracciamento -> scontorno -> file.
 
-Usato sia dal comando da terminale (scontorno.py) sia dall'interfaccia grafica.
+Usato sia dal comando da terminale (clickmatte.py) sia dall'interfaccia grafica.
 Tutti i parametri stanno in Config; i messaggi passano da un oggetto Eventi.
 """
 
@@ -73,7 +73,7 @@ class Config:
     prova: bool = False
     frame_prova: list = None            # frame (relativi al tratto) da salvare in prova; None = automatici
     rifai_tutto: bool = False           # True: esporta tutto da capo anche se solo una parte e' cambiata
-    cartella_cache: str = ""            # dati di lavoro ("" = ~/Library/Caches/Scontorno/<video>)
+    cartella_cache: str = ""            # dati di lavoro ("" = ~/Library/Caches/ClickMatte/<video>)
 
     def dizionario(self):
         return asdict(self)
@@ -444,8 +444,8 @@ def _unisci(intervalli):
 def _frame_prova(cfg, tracce, mani, n_tot):
     if cfg.frame_prova:
         return {int(k) for k in cfg.frame_prova if 0 <= int(k) < n_tot}
-    if os.environ.get("SCONTORNO_FRAMES"):             # solo per test
-        return {int(x) for x in os.environ["SCONTORNO_FRAMES"].split(",")}
+    if os.environ.get("CLICKMATTE_FRAMES"):             # solo per test
+        return {int(x) for x in os.environ["CLICKMATTE_FRAMES"].split(",")}
     ok = list(range(n_tot)) if tracce is None else [k for k, m in enumerate(tracce) if m is not None]
     ok = ok or list(range(n_tot))
     idx = {ok[0], ok[len(ok) // 2], ok[-1]}

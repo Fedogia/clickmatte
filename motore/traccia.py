@@ -348,7 +348,7 @@ def traccia_sam(cfg, info, tappe, n_tot, cartella, ev):
 
 def _traccia_pezzo(cfg, info, f0, a, b, t, pw, ph, PredittoreVideo, posa, dev, selettore, ev, base, n_prog):
     n_chiesti = b - a
-    tmp = tempfile.mkdtemp(prefix="scontorno_")
+    tmp = tempfile.mkdtemp(prefix="clickmatte_")
     try:
         clip = os.path.join(tmp, "pezzo.mp4")
         rd = lettore_frame(cfg.video, f0 + a, n_chiesti, info["fps_txt"], pw, ph, info["colore"], scala=True)

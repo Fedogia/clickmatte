@@ -110,7 +110,7 @@ Il progetto si salva in `progetto.json` nella cartella di lavoro del video (*Per
 Contiene tratto, fotogrammi chiave, zone ignorate e la `config` completa, e si può rieseguire senza interfaccia.
 
 ```bash
-python3 scontorno.py --progetto percorso/progetto.json
+python3 clickmatte.py --progetto percorso/progetto.json
 ```
 
 Sintassi di `--segui`:
@@ -138,5 +138,5 @@ aperta) e offre barra strumenti con icone SF Symbols, menu con scorciatoie, avvi
 *File › Apri recenti*. Quando un lavoro lungo finisce mentre usi un'altra app, invia una notifica e fa saltellare
 l'icona nel Dock.
 
-`pyobjc-framework-Cocoa` serve solo per le icone di sistema e per il nome «Scontorno» nel menu: senza, l'app funziona
+`pyobjc-framework-Cocoa` serve solo per le icone di sistema e per il nome «ClickMatte» nel menu: senza, l'app funziona
 con icone semplici.

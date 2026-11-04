@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Finestra principale di Scontorno (stile Mac: barra strumenti unita al titolo, menu con le scorciatoie ⌘)."""
+"""Finestra principale di ClickMatte (stile Mac: barra strumenti unita al titolo, menu con le scorciatoie ⌘)."""
 
 import copy
 import os
@@ -35,7 +35,7 @@ MAX_ANNULLA = 100
 class Finestra(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Scontorno")
+        self.setWindowTitle("ClickMatte")
         self.resize(1520, 940)
         self.setAcceptDrops(True)
         self.setUnifiedTitleAndToolBarOnMac(True)
@@ -466,7 +466,7 @@ class Finestra(QMainWindow):
         self.setWindowTitle(os.path.basename(percorso))
         self.setWindowFilePath(os.path.abspath(percorso))       # sul Mac: icona del file nel titolo (⌘ clic = percorso)
         self._aggiungi_recente(percorso)
-        self._log(f"Aperto {percorso} (Scontorno {motore.VERSIONE})")
+        self._log(f"Aperto {percorso} (ClickMatte {motore.VERSIONE})")
         if os.path.isfile(self.prog.proxy):
             self._carica_proxy()
         else:
@@ -1334,7 +1334,7 @@ class Finestra(QMainWindow):
     def _notifica(self, titolo, testo):
         """Avviso di sistema solo per i lavori lunghi e se nel frattempo stai usando un'altra app."""
         if time.time() - getattr(self, "_t_inizio_lavoro", time.time()) > 15:
-            tema.notifica(self, f"Scontorno · {titolo}", testo)
+            tema.notifica(self, f"ClickMatte · {titolo}", testo)
 
     def _lavoro_errore(self, msg, dettagli):
         self._notifica("Errore", msg)
@@ -1419,8 +1419,8 @@ class Finestra(QMainWindow):
                 QDesktopServices.openUrl(QUrl.fromLocalFile(os.path.dirname(f)))
 
     def _comando(self):
-        return (f'cd "{CARTELLA_APP}" && source ~/scontorno-env/bin/activate && '
-                f'python3 scontorno.py --progetto "{self.prog.file_progetto}"')
+        return (f'cd "{CARTELLA_APP}" && source ~/clickmatte-env/bin/activate && '
+                f'python3 clickmatte.py --progetto "{self.prog.file_progetto}"')
 
     def _copia_comando(self):
         if not self.prog:

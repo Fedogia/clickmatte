@@ -3,7 +3,7 @@
 
 Si salva da solo in progetto.json (nella cartella di lavoro del video) a ogni modifica: riaprendo lo
 stesso video si riparte da dove eri. Lo stesso file si puo' dare al comando da terminale:
-    python3 scontorno.py --progetto ".../progetto.json"
+    python3 clickmatte.py --progetto ".../progetto.json"
 """
 
 import hashlib
@@ -132,7 +132,7 @@ class Progetto:
     # --- salvataggio -----------------------------------------------------
     def salva(self, pannello, config):
         self.pannello = pannello
-        d = {"programma": "Scontorno", "versione": VERSIONE, "salvato": time.strftime("%Y-%m-%d %H:%M:%S"),
+        d = {"programma": "ClickMatte", "versione": VERSIONE, "salvato": time.strftime("%Y-%m-%d %H:%M:%S"),
              "video": self.video,
              "tratto": {"in": self.in_f, "out": self.out_f, "fps": self.fps,
                         "inizio_s": round(self.secondi(self.in_f), 4), "fine_s": round(self.secondi(self.out_f + 1), 4)},
@@ -141,7 +141,7 @@ class Progetto:
              "pannello": pannello,
              "config": config,
              "nota": "Le chiavi hanno frame del video intero; in 'config' i frame sono relativi al tratto. "
-                     "Da terminale: python3 scontorno.py --progetto <questo file>"}
+                     "Da terminale: python3 clickmatte.py --progetto <questo file>"}
         tmp = self.file_progetto + ".tmp"
         with open(tmp, "w", encoding="utf-8") as fh:
             json.dump(d, fh, ensure_ascii=False, indent=1)

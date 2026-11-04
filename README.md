@@ -1,4 +1,4 @@
-# Scontorno
+# ClickMatte
 
 App per macOS che scontorna un soggetto da un video (una persona, un oggetto, un animale) e genera file
 ProRes con canale alfa pronti per il montaggio. Basta cliccare sul soggetto: il programma lo segue per tutto
@@ -36,19 +36,19 @@ brew install ffmpeg python
 ```
 
 ```bash
-git clone https://github.com/Fedogia/scontorno.git
+git clone https://github.com/Fedogia/clickmatte.git
 ```
 
 ```bash
-cd scontorno
+cd clickmatte
 ```
 
 ```bash
-python3 -m venv ~/scontorno-env
+python3 -m venv ~/clickmatte-env
 ```
 
 ```bash
-source ~/scontorno-env/bin/activate
+source ~/clickmatte-env/bin/activate
 ```
 
 ```bash
@@ -70,13 +70,13 @@ I modelli di intelligenza artificiale si scaricano da soli al primo utilizzo.
 
 ## Avvio
 
-Fai doppio clic su **`Avvia Scontorno.command`** (la prima volta: clic destro › Apri). In alternativa, da terminale:
+Fai doppio clic su **`Avvia ClickMatte.command`** (la prima volta: clic destro › Apri). In alternativa, da terminale:
 
 ```bash
 python3 app.py
 ```
 
-Il launcher usa l'ambiente in `~/scontorno-env`, se esiste.
+Il launcher usa l'ambiente in `~/clickmatte-env`, se esiste.
 
 ## Come si usa
 
@@ -111,27 +111,27 @@ La [guida completa](docs/guida.md) descrive timeline, scorciatoie e impostazioni
 
 ```bash
 # Prova: tracciamento completo, PNG di controllo e video del tracciamento
-python3 scontorno.py video.mov --segui 42,70+45,40 --prova
+python3 clickmatte.py video.mov --segui 42,70+45,40 --prova
 
 # Esportazione finale: riusa il tracciamento già calcolato
-python3 scontorno.py video.mov --segui 42,70+45,40
+python3 clickmatte.py video.mov --segui 42,70+45,40
 
 # Oggetto generico: motore sagoma
-python3 scontorno.py prodotto.mov --soggetto oggetto --segui 50,50
+python3 clickmatte.py prodotto.mov --soggetto oggetto --segui 50,50
 
 # Riesegue un progetto salvato dall'app
-python3 scontorno.py --progetto percorso/progetto.json
+python3 clickmatte.py --progetto percorso/progetto.json
 ```
 
 Le coordinate di `--segui` sono in percentuale del frame. Tutte le opzioni sono elencate da:
 
 ```bash
-python3 scontorno.py -h
+python3 clickmatte.py -h
 ```
 
 ## Privacy e dati locali
 
-Scontorno elabora i video sul tuo Mac e non li carica su nessun servizio. La rete serve per scaricare i modelli.
+ClickMatte elabora i video sul tuo Mac e non li carica su nessun servizio. La rete serve per scaricare i modelli.
 La libreria Ultralytics può inviare statistiche d'uso anonime: per disattivarle usa il comando qui sotto.
 
 ```bash
@@ -140,16 +140,16 @@ yolo settings sync=False
 
 | Percorso | Contenuto |
 |---|---|
-| `~/Library/Caches/Scontorno/<video>/` | Tracciamento, selezioni, `progetto.json` e copia leggera del video. Si può cancellare: i file esportati restano |
-| `~/.cache/scontorno/` | Modelli scaricati |
+| `~/Library/Caches/ClickMatte/<video>/` | Tracciamento, selezioni, `progetto.json` e copia leggera del video. Si può cancellare: i file esportati restano |
+| `~/.cache/clickmatte/` | Modelli scaricati |
 
 ## Struttura del progetto
 
 ```text
 .
 ├── app.py                     avvio dell'interfaccia grafica
-├── scontorno.py               comando da terminale
-├── Avvia Scontorno.command    launcher con doppio clic
+├── clickmatte.py              comando da terminale
+├── Avvia ClickMatte.command   launcher con doppio clic
 ├── requirements.txt           dipendenze Python
 ├── LICENSE                    testo della licenza AGPL-3.0
 ├── NOTICE.md                  avvisi e componenti di terzi
@@ -182,7 +182,7 @@ yolo settings sync=False
 
 ## Licenza
 
-Il codice di Scontorno è distribuito con licenza [GNU AGPL-3.0](LICENSE), senza alcuna garanzia e nei limiti di
+Il codice di ClickMatte è distribuito con licenza [GNU AGPL-3.0](LICENSE), senza alcuna garanzia e nei limiti di
 responsabilità previsti dalla licenza.
 
 I componenti di terzi non sono inclusi in questo repository e restano soggetti alle proprie licenze: chi li installa

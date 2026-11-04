@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Scontorno — interfaccia grafica.
+"""ClickMatte — interfaccia grafica.
 
-Avvio:  python3 app.py  [video]     (oppure doppio clic su "Avvia Scontorno.command")
+Avvio:  python3 app.py  [video]     (oppure doppio clic su "Avvia ClickMatte.command")
 """
 
 import os
@@ -28,14 +28,14 @@ def tema_scuro(app):
 
 
 def _nome_nel_menu():
-    """Sul Mac il primo menu porterebbe il nome "Python": lo chiamo Scontorno (serve PyObjC, facoltativo)."""
+    """Sul Mac il primo menu porterebbe il nome "Python": lo chiamo ClickMatte (serve PyObjC, facoltativo)."""
     if sys.platform != "darwin":
         return
     try:
         from Foundation import NSBundle
         info = NSBundle.mainBundle().localizedInfoDictionary() or NSBundle.mainBundle().infoDictionary()
         if info is not None:
-            info["CFBundleName"] = "Scontorno"
+            info["CFBundleName"] = "ClickMatte"
     except Exception:
         pass
 
@@ -71,8 +71,8 @@ def main():
     _nome_nel_menu()
     app = QApplication(sys.argv)
     app.setWindowIcon(_icona_app())
-    app.setApplicationName("Scontorno")
-    app.setOrganizationName("Scontorno")
+    app.setApplicationName("ClickMatte")
+    app.setOrganizationName("ClickMatte")
     tema_scuro(app)
     f = Finestra()
     f.show()

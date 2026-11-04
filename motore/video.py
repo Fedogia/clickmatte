@@ -122,7 +122,7 @@ def prova_prores_hw():
     lista = subprocess.run(["ffmpeg", "-hide_banner", "-encoders"], capture_output=True, text=True).stdout
     if "prores_videotoolbox" not in lista:
         return enc
-    tmp = tempfile.mkdtemp(prefix="scontorno_hw_")
+    tmp = tempfile.mkdtemp(prefix="clickmatte_hw_")
     try:
         for kind, prof, src in (("base", "hq", "color=c=red:s=256x144:d=0.2"),
                                 ("alpha", "4444", "color=c=red@0.5:s=256x144:d=0.2,format=rgba")):

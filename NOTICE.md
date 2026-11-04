@@ -1,6 +1,6 @@
 # Notice
 
-Scontorno
+ClickMatte
 Copyright (C) 2026 Fedogia
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero
@@ -15,10 +15,10 @@ License](LICENSE) for more details.
 
 If you modify this program, or any covered work, by linking or combining it with MatAnyone 2
 (<https://github.com/pq-yang/MatAnyone2>) or its model weights, installed separately and licensed under the
-S-Lab License 1.0, the copyright holder of Scontorno grants you additional permission to convey the resulting
+S-Lab License 1.0, the copyright holder of ClickMatte grants you additional permission to convey the resulting
 work.
 
-This permission applies only to the code of Scontorno. It does not change the license of MatAnyone 2 or of any
+This permission applies only to the code of ClickMatte. It does not change the license of MatAnyone 2 or of any
 other third-party component, and it does not grant any right to use those components.
 
 ## Third-party components
