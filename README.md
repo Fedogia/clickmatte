@@ -36,7 +36,7 @@ brew install ffmpeg python
 ```
 
 ```bash
-git clone <url-del-repository> scontorno
+git clone https://github.com/Fedogia/scontorno.git
 ```
 
 ```bash
@@ -151,6 +151,8 @@ yolo settings sync=False
 ├── scontorno.py               comando da terminale
 ├── Avvia Scontorno.command    launcher con doppio clic
 ├── requirements.txt           dipendenze Python
+├── LICENSE                    testo della licenza AGPL-3.0
+├── NOTICE.md                  avvisi e componenti di terzi
 ├── docs/
 │   └── guida.md               guida completa
 ├── motore/                    elaborazione video, senza interfaccia
@@ -180,5 +182,9 @@ yolo settings sync=False
 
 ## Licenza
 
-Il codice di questo repository non ha ancora una licenza: tutti i diritti riservati. Le dipendenze restano
-soggette alle rispettive licenze, indicate nella sezione [Motori](#motori).
+Il codice di Scontorno è distribuito con licenza [GNU AGPL-3.0](LICENSE), senza alcuna garanzia e nei limiti di
+responsabilità previsti dalla licenza.
+
+I componenti di terzi non sono inclusi in questo repository e restano soggetti alle proprie licenze: chi li installa
+e li usa è tenuto a rispettarle. In particolare, **MatAnyone 2 è facoltativo e utilizzabile solo per scopi non
+commerciali**. Dettagli e permesso aggiuntivo per MatAnyone 2 sono in [NOTICE.md](NOTICE.md).
