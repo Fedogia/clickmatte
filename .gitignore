@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Segreti e configurazioni locali
+.env
+.env.*
+.claude/
+
+# Video e file generati: possono contenere persone riconoscibili
+*.[mM][oO][vV]
+*.[mM][pP]4
+*.[mM]4[vV]
+*.[mM][kK][vV]
+*.[aA][vV][iI]
+*_PROVA_*.png
+progetto.json
+
+# Modelli scaricati al primo uso
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# MatAnyone 2 clonato dentro il progetto
+MatAnyone2/

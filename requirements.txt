@@ -1,0 +1,15 @@
+# Interfaccia
+PySide6-Essentials
+pyobjc-framework-Cocoa ; sys_platform == "darwin"   # icone SF Symbols (facoltativo)
+# Motore
+numpy
+opencv-python
+rembg[cpu]
+ultralytics
+omegaconf
+hydra-core
+huggingface_hub
+safetensors
+imageio
+# MatAnyone 2 (installalo con: git clone https://github.com/pq-yang/MatAnyone2 ~/MatAnyone2
+#                              pip install --no-deps -e ~/MatAnyone2)
